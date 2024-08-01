@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieDetailsTableViewCell" rowHeight="412" id="KGk-i7-Jjw" customClass="MovieDetailsTableViewCell" customModule="PublicMovieAppDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="412"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="383" height="412"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbg-QJ-qgL">
+                        <rect key="frame" x="10" y="10" width="363" height="392"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duF-EA-7qH">
+                                <rect key="frame" x="0.0" y="0.0" width="363" height="251"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-screen-cinema-app_996136-2665.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dKT-gw-UX8">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="251"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="dKT-gw-UX8" firstAttribute="top" secondItem="duF-EA-7qH" secondAttribute="top" id="8Rd-WJ-an0"/>
+                                    <constraint firstAttribute="height" constant="251" id="PSi-t2-TMc"/>
+                                    <constraint firstAttribute="trailing" secondItem="dKT-gw-UX8" secondAttribute="trailing" id="d5N-r2-eyH"/>
+                                    <constraint firstAttribute="bottom" secondItem="dKT-gw-UX8" secondAttribute="bottom" id="tZK-NF-Yue"/>
+                                    <constraint firstItem="dKT-gw-UX8" firstAttribute="leading" secondItem="duF-EA-7qH" secondAttribute="leading" id="xpd-vc-W4p"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enj-DH-sLP">
+                                <rect key="frame" x="10" y="261" width="343" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhE-Ii-LU4">
+                                <rect key="frame" x="10" y="285" width="343" height="17.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2K-Mf-HCs">
+                                <rect key="frame" x="328" y="353" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="KTv-RG-Rbt"/>
+                                    <constraint firstAttribute="width" constant="25" id="phc-az-uOY"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="heartAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TPA-Iw-wdx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="enj-DH-sLP" firstAttribute="leading" secondItem="wbg-QJ-qgL" secondAttribute="leading" constant="10" id="5nO-kv-etk"/>
+                            <constraint firstAttribute="bottom" secondItem="Z2K-Mf-HCs" secondAttribute="bottom" constant="14" id="Bc2-3C-MLh"/>
+                            <constraint firstAttribute="trailing" secondItem="Z2K-Mf-HCs" secondAttribute="trailing" constant="10" id="EFw-eT-ALc"/>
+                            <constraint firstItem="mhE-Ii-LU4" firstAttribute="top" secondItem="enj-DH-sLP" secondAttribute="bottom" constant="4" id="MWn-Pr-D4I"/>
+                            <constraint firstAttribute="trailing" secondItem="duF-EA-7qH" secondAttribute="trailing" id="NfP-LN-4Gv"/>
+                            <constraint firstItem="mhE-Ii-LU4" firstAttribute="leading" secondItem="wbg-QJ-qgL" secondAttribute="leading" constant="10" id="QIJ-nX-lzb"/>
+                            <constraint firstItem="enj-DH-sLP" firstAttribute="top" secondItem="duF-EA-7qH" secondAttribute="bottom" constant="10" id="R4H-ap-jgf"/>
+                            <constraint firstItem="duF-EA-7qH" firstAttribute="leading" secondItem="wbg-QJ-qgL" secondAttribute="leading" id="VlQ-tk-1y5"/>
+                            <constraint firstItem="Z2K-Mf-HCs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mhE-Ii-LU4" secondAttribute="bottom" constant="8" id="reL-f3-cle"/>
+                            <constraint firstItem="duF-EA-7qH" firstAttribute="top" secondItem="wbg-QJ-qgL" secondAttribute="top" id="tPJ-9y-BXq"/>
+                            <constraint firstAttribute="trailing" secondItem="enj-DH-sLP" secondAttribute="trailing" constant="10" id="wuD-BS-nJ4"/>
+                            <constraint firstAttribute="trailing" secondItem="mhE-Ii-LU4" secondAttribute="trailing" constant="10" id="zr8-6L-nU4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="wbg-QJ-qgL" secondAttribute="trailing" constant="10" id="0DE-CL-J5l"/>
+                    <constraint firstItem="wbg-QJ-qgL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4bF-Dh-qHP"/>
+                    <constraint firstItem="wbg-QJ-qgL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="78a-oE-vWw"/>
+                    <constraint firstAttribute="bottom" secondItem="wbg-QJ-qgL" secondAttribute="bottom" constant="10" id="y1g-M6-5yg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLbl" destination="mhE-Ii-LU4" id="dBQ-Zl-Z1Y"/>
+                <outlet property="heartButton" destination="Z2K-Mf-HCs" id="wZ5-Zv-WSU"/>
+                <outlet property="mainView" destination="wbg-QJ-qgL" id="YIM-iS-dcO"/>
+                <outlet property="movieIcon" destination="dKT-gw-UX8" id="yja-0S-Gc2"/>
+                <outlet property="titleLabel" destination="enj-DH-sLP" id="byg-fR-XGt"/>
+            </connections>
+            <point key="canvasLocation" x="133.58778625954199" y="149.29577464788733"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="splash-screen-cinema-app_996136-2665.jpg" width="1060" height="1060"/>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
