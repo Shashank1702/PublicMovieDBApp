@@ -7,7 +7,7 @@ target 'PublicMovieAppDemo' do
 
   # Pods for PublicMovieAppDemo
   pod 'Alamofire'
-  pod 'ProgressHUD'
+  pod 'SVProgressHUD'
   pod 'SDWebImage', '~> 5.0'
 
   target 'PublicMovieAppDemoTests' do
