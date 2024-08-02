@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class MovieListViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var movieListTableView: UITableView!
     
     var movieList:[Results]?
+    var searchListData: [Results]?
     
     var searchText = ""
     
@@ -38,11 +40,15 @@ class MovieListViewController: UIViewController {
         movieListTableView.delegate = self
         movieListTableView.dataSource = self
         searchTextField.delegate = self
+        SVProgressHUD.show()
         APIClient.getAllMovies{ result in
             switch result {
             case .success(let movies):
                 self.movieList = movies.results
                 self.movieListTableView.reloadData()
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -61,7 +67,7 @@ class MovieListViewController: UIViewController {
             APIClient.searchMovie(query: self.searchText) { result in
                 switch result {
                 case .success(let movie):
-                    self.movieList = movie.results
+                    self.searchListData = movie.results
                     self.movieListTableView.reloadData()
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -80,20 +86,20 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movieList?.count ?? 0
+        return (self.searchText.isEmpty ? (self.movieList?.count ?? 0) : (self.searchListData?.count ?? 0))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListTableViewCell") as? MovieListTableViewCell else {
             return UITableViewCell()
         }
-        cell.setupTableData(movie: self.movieList?[indexPath.row])
+        cell.setupTableData(movie: self.searchText.isEmpty ? self.movieList?[indexPath.row] : self.searchListData?[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let secondVC = MovieDetailViewController()
-        secondVC.movieId = self.movieList?[indexPath.row].id
+        secondVC.movieId = self.searchText.isEmpty ? self.movieList?[indexPath.row].id : self.searchListData?[indexPath.row].id
         self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
@@ -127,15 +133,7 @@ extension MovieListViewController: UITextFieldDelegate {
         // Check if the updated text is empty
         if updatedText.isEmpty {
             self.searchText = ""
-            APIClient.getAllMovies{ result in
-                switch result {
-                case .success(let movies):
-                    self.movieList = movies.results
-                    self.movieListTableView.reloadData()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+            self.movieListTableView.reloadData()
         }
         return true
     }
