@@ -23,7 +23,11 @@ The Movie DB iOS App is a simple application that allows users to search for mov
 - An API key from [The Movie Database](https://www.themoviedb.org/).
 
 Pod install 
-and make pod iOS Development target same and set a minimum target of 14.0.
+and make the pod iOS Development target the same and set a minimum target of 14.0.
+
+Move to the development branch to run the project.
+
+Unit test cases not written.
  
 ## Installation
  
